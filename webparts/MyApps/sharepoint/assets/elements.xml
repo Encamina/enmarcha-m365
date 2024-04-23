@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+    <Field ID="{d90ad16b-168b-4321-a076-095a281383ef}"
+            Name="ENC_Url"
+            DisplayName="Url"
+            Type="Text"
+            Required="TRUE"
+            Group="ENCAMINA" />
+
+    <Field ID="{a4ef1ecc-1772-4ce0-8ffd-238b03ae6c6a}"
+            Name="ENC_Category"
+            DisplayName="Category"
+            Type="Text"
+            Required="TRUE"
+            Group="ENCAMINA">
+    </Field>
+    <Field ID="{89cd538b-c181-4297-8a29-4cd98add5f8b}"
+            Name="ENC_Icon"
+            DisplayName="Icon"
+            Type="Thumbnail"
+            Required="TRUE"
+            Group="ENCAMINA"  />
+    <Field ID="{56f0e3e4-6708-465a-9c26-76f09a13b367}"
+            Name="ENC_Group"
+            DisplayName="Group"
+            Type="Choice"
+            Required="FALSE"
+            Group="ENCAMINA">
+    </Field>
+     <Field ID="{5e8aebb8-2d0a-4dc9-8e2b-4396528ae976}"
+            Name="ENC_IsGrouper"
+            DisplayName="IsGrouper"
+            Type="Boolean"
+            Required="TRUE"
+            Group="ENCAMINA">
+            <Default>FALSE</Default>
+    </Field>
+    <Field ID="{dc742f3a-19b9-4a21-8bc1-febe257e2b8d}"
+            Name="ENC_IDApp"
+            DisplayName="IDApp"
+            Type="Text"
+            Required="TRUE"
+            Group="ENCAMINA">
+    </Field>
+    <Field ID="{3128272b-0ee1-4921-a94b-29036341c372}"
+            Name="ENC_User"
+            DisplayName="User"
+            Type="Text"
+            Required="TRUE"
+            Group="ENCAMINA">
+    </Field>
+
+    <ContentType ID="0x010069e899d5ee524cc89cf912b30e53dbfc"
+            Name="AppLinks"
+            Group="ENCAMINA"
+            Description="">
+        <FieldRefs>
+            <FieldRef ID="{d90ad16b-168b-4321-a076-095a281383ef}" />
+            <FieldRef ID="{a4ef1ecc-1772-4ce0-8ffd-238b03ae6c6a}" />
+            <FieldRef ID="{89cd538b-c181-4297-8a29-4cd98add5f8b}" />
+            <FieldRef ID="{5e8aebb8-2d0a-4dc9-8e2b-4396528ae976}" />
+            <FieldRef ID="{56f0e3e4-6708-465a-9c26-76f09a13b367}" />
+        </FieldRefs>
+    </ContentType>
+
+    <ContentType ID="0x0100a14f0aa189904697a45625041997ee1f"
+            Name="FavAppLinks"
+            Group="ENCAMINA"
+            Description="">
+        <FieldRefs>
+            <FieldRef ID="{dc742f3a-19b9-4a21-8bc1-febe257e2b8d}" />
+            <FieldRef ID="{3128272b-0ee1-4921-a94b-29036341c372}" />
+        </FieldRefs>
+    </ContentType>
+
+    <ListInstance
+            CustomSchema="schema.xml"
+            FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+            Title="MyAppsLinks"
+            Description=""
+            TemplateType="100"
+            Url="Lists/MyAppsLinks">
+    </ListInstance>
+
+    <ListInstance
+            CustomSchema="schemaFav.xml"
+            FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+            Title="MyAppsFavorites"
+            Description=""
+            TemplateType="100"
+            Url="Lists/MyAppsFavorites">
+    </ListInstance>
+
+</Elements>
