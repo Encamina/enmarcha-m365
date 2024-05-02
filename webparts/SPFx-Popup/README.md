@@ -49,5 +49,5 @@ npm run build
 npm run packageSolution
 ```
 
-### NOTAS:
+### NOTES:
 > Update the package of “@pnp/spfx-property-controls”: “3.16.0” when version 3.17.0 is released, which includes the option to delete images
