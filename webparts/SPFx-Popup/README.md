@@ -9,6 +9,8 @@ Webpart whose functionality is to display a pop-up window with the following pro
 - Link
 - Image
 
+![App Image](./assets/app.png)
+
 ## Applies to
 
 - [SharePoint Framework](https://aka.ms/spfx)
