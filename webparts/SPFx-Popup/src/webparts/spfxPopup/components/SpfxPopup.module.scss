@@ -1,0 +1,68 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.spfxPopup {
+  overflow: hidden;
+  padding: 1em;
+  color: "[theme:bodyText, default: #323130]";
+  color: var(--bodyText);
+  &.teams {
+    font-family: $ms-font-family-fallbacks;
+  }
+}
+
+.containerPopUp {
+  max-width: 70% !important;
+  max-height: 70% !important;
+}
+.scrollableContentClass{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.popUpWithImage{
+  display: flex;
+  padding: 10px 60px 30px 60px;
+}
+
+.popUpWithoutImage{
+  padding: 10px 60px 30px 60px;
+}
+
+.popUpImage {
+  display: block;
+  margin-right: auto;
+  width: 48%;
+  margin-top: 20px;
+}
+
+.popUpDetails {
+  width: 48%;
+}
+
+.closeIcon {
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .closeIcon {
+    float: right;
+    margin: 5px 5px 0 0;
+  }
+  .popUpWithImage{
+    display: block;
+    padding: 5px 30px 15px 30px;
+  }
+  .popUpDetails {
+    width: auto;
+  }
+  .popUpImage {
+    display: block;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .popUpWithoutImage{
+    padding: 5px 30px 15px 30px;
+  }
+}
