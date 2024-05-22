@@ -19,7 +19,9 @@ This webpart allows the user to configure the main color of the application. If 
 
 ## Requirements
 
-Versión de node necesaria: >=16.13.0 <17.0.0
+Required node version: >=16.13.0 <17.0.0
+
+Developed in version: 16.18.1
 
 ## Deployment
 
