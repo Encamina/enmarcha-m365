@@ -1,0 +1,134 @@
+.calendar-container {
+    display: flex;
+    /* border-radius: 8px;
+    box-shadow: 0px 3.2px 7.2px 0px rgba(0, 0, 0, 0.13), 0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.11); */
+  }
+  
+  .calendar {
+    padding: 10px 20px;
+    border-radius: 8px;
+    /* Shadows / Elevation 8 */
+    box-shadow: 0px 3.2px 7.2px 0px rgba(0, 0, 0, 0.13), 0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.11);
+  }
+  .calendar-title {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .calendar-headline {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  
+  .calendar-headline-month {
+    font-weight: 600;
+  }
+  
+  .calendar-headline-controls {
+    display: flex;
+    margin: 0 auto;
+    width: max-content;
+    flex: auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .calendar-headline-control {
+    cursor: pointer;
+  }
+  
+  .calendar-headline-control:hover {
+    text-decoration: underline;
+  }
+  
+  .calendar-headline-controls-today {
+    margin: 0 10px;
+  }
+  
+  .calendar-weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(40px, 40px));
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: rgb(81, 81, 81);
+  }
+  
+  .calendar-weeks-grid-cell {
+    text-align: center;
+  }
+  
+  .calendar-grid-cell-inactive {
+    color: #9e9e9e !important;
+    opacity: 0.5 !important;
+  }
+
+  .calendar-grid-cell-global-holiday {
+    background-color: #95a844;
+    color: #ffffff;
+  }
+
+  .calendar-grid-cell-local-holiday {
+    background-color: #5f1939;
+    color: #ffffff;
+  }
+
+  .calendar-grid-cell-event {
+    background-color: #80b0c8;
+    color: #ffffff;
+  }
+
+  .calendar-grid-cell-reduced-day {
+    background-color: #004666;
+    color: #ffffff;
+  }
+  
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(40px, 40px));
+    border-top: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+  }
+  
+  .calendar-grid-cell {
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    cursor: pointer;
+  }
+
+  .calendar-button {
+    color: black;
+    &:hover{
+      color: black;
+    }
+  }
+  .calendar-event-type-title{
+    color: #a5a8aa;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 15px 0;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .calendar-event-list {
+    display: flex;
+    flex-flow: column;
+  }
+  .calendar-event-type{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    i {
+      margin-right: 8px;
+    }
+    span{
+      color: #8b8b8b;
+      display: inline-block;
+    }
+  }
