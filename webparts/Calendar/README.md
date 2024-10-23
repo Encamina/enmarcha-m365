@@ -21,7 +21,7 @@ Webpart whose functionality is to display a pop-up window with the following pro
 ## Prerequisites
 - Node.js v18.20.4
 
-## Instalación y Despliegue
+## Installation and Deployment
 
 ### Debug
 > First time:
@@ -41,13 +41,23 @@ Browser:
 
 > ?debug=true&noredir=true&debugManifestsFile=https://localhost:4321/temp/manifests.js
 
-### Build
+### Build + Package Generation
 
 ```bash
 npm run clean
 npm run build
 npm run packageSolution
 ```
-
+### Prerequisites:
+> Configuration list with the following columns
+- Title
+- Color
+> List with the follwing columns
+- Title
+- Fecha
+- 
 ### NOTES:
 > This web part uses Luxon library so the month and days will be translated to your local time.
+
+### NEXT STEPS
+> Feature that deploys the list on SharePoint.
