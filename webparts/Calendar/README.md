@@ -2,12 +2,7 @@
 
 ## Summary
 
-Webpart whose functionality is to display a pop-up window with the following properties
-- Title
-- Subtitle
-- Content
-- Link
-- Image
+Web part whose functionality is to display a calendar with events extracted from two SharePoint lists, one that has the configuration and another that has the items to display inside the calendar.
 
 ![App Image](./assets/app.png)
 
