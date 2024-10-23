@@ -11,9 +11,10 @@ declare interface ICalendarWebPartStrings {
   AppOfficeEnvironment: string;
   AppOutlookEnvironment: string;
   UnknownEnvironment: string;
-  TitleFieldLabel: Title;
-  ListFieldLabel: Title;
-  ConfigListFieldLabel: Title;
+  TitleFieldLabel: string;
+  ListFieldLabel: string;
+  ConfigListFieldLabel: string;
+  Events: string
 }
 
 declare module "CalendarWebPartStrings" {

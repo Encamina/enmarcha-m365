@@ -22,5 +22,6 @@ define([], function () {
     TitleFieldLabel: "Título",
     ListFieldLabel: "Lista",
     ConfigListFieldLabel: "Lista de Configuración",
+    Events: "Festivos/Eventos"
   };
 });

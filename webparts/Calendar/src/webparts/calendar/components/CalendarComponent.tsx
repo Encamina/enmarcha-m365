@@ -15,6 +15,7 @@ import { Holiday } from "../models/IHoliday";
 import { FontIcon, IconButton, IIconProps } from "@fluentui/react";
 import { HolidayConfig } from "../models/IHolidayConfig";
 import styles from "./Calendar.module.scss";
+import * as strings from "CalendarWebPartStrings";
 
 const leftArrow: IIconProps = { iconName: "ChevronLeftMed" };
 const rightArrow: IIconProps = { iconName: "ChevronRightMed" };
@@ -224,7 +225,7 @@ export default class CalendarComponent extends React.Component<
           </div>
           <div>
             <span className={styles.calendar_event_type_title}>
-              Festivos/eventos
+              {strings.Events}
             </span>
             <div className={styles.calendar_event_list}>
               {this.state.holidaysConfig.map((config, index) => (
