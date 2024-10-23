@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react';
 import type { ICalendarProps } from './ICalendarProps';
@@ -10,11 +11,10 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import "@pnp/sp/fields";
 import { Info, DateTime, Interval} from "luxon";
-import classnames from "classnames";
-import "./calendar.css";
 import {Holiday} from '../models/IHoliday'
 import { FontIcon, IconButton, IIconProps } from '@fluentui/react';
 import { HolidayConfig } from '../models/IHolidayConfig';
+import styles from "./Calendar.module.scss";
 
 const leftArrow: IIconProps = { iconName: 'ChevronLeftMed' };
 const rightArrow: IIconProps = { iconName: 'ChevronRightMed' };
@@ -93,17 +93,16 @@ export default class CalendarComponent extends React.Component<ICalendarProps, I
       
       private getHolidaysConfig = async (): Promise<void> => {
         const sp = spfi().using(SPFx(this.props.context));
-        const items: any[] = await sp.web.lists.getByTitle("Config Festivos").items.select("Title", "Color")();
+        const items: any[] = await sp.web.lists.getByTitle(this.props.configList).items.select("Title", "Color")();
         const holidaysConfig = items.map(this.mapToHolidayConfig);
         this.setState({
           holidaysConfig: holidaysConfig
         })
       }
 
-
       private getHolidays = async (): Promise<void> => {
         const sp = spfi().using(SPFx(this.props.context));
-        const items: any[] = await sp.web.lists.getByTitle("Festivos").items.select("Title", "Categoria", "Fecha", "CategoriaLookup/Title", "CategoriaLookup/Color")
+        const items: any[] = await sp.web.lists.getByTitle(this.props.list).items.select("Title", "Categoria", "Fecha", "CategoriaLookup/Title", "CategoriaLookup/Color")
         .expand("CategoriaLookup")
         .orderBy("Fecha", false)
         ();
@@ -140,35 +139,31 @@ export default class CalendarComponent extends React.Component<ICalendarProps, I
  
 
   return (
-    <div className="calendar-container">
-      <div className="calendar">
-        <div className='calendar-title'>{this.props.title}</div>
-        <div className="calendar-headline">
-          <div className="calendar-headline-controls">
-            <IconButton iconProps={leftArrow} className="calendar-button" title="previousMonth" ariaLabel="previousMonth" onClick={() => this.goToPreviousMonth()}/>
-            <div className="calendar-headline-month">
+    <div className={styles.calendar_container}>
+      <div className={styles.calendar}>
+        <div className={styles.calendar_title}>{this.props.title}</div>
+        <div className={styles.calendar_headline}>
+          <div className={styles.calendar_headline_controls}>
+            <IconButton iconProps={leftArrow} className={styles.calendar_button} title="previousMonth" ariaLabel="previousMonth" onClick={() => this.goToPreviousMonth()}/>
+            <div className={styles.calendar_headline_month}>
             {firstDay.monthLong} {firstDay.year}
             </div>
-            <IconButton iconProps={rightArrow} className="calendar-button" title="nextMonth" ariaLabel="nextMonth" onClick={() => this.goToNextMonth()}/>
+            <IconButton iconProps={rightArrow} className={styles.calendar_button} title="nextMonth" ariaLabel="nextMonth" onClick={() => this.goToNextMonth()}/>
           </div>
         </div>
-        <div className="calendar-weeks-grid">
+        <div className={styles.calendar_weeks_grid}>
           {weekDays.map((weekDay, weekDayIndex) => (
-            <div key={weekDayIndex} className="calendar-weeks-grid-cell">
+            <div key={weekDayIndex} className={styles.calendar_weeks_grid_cell}>
               {weekDay}
             </div>
           ))}
         </div>
-        <div className="calendar-grid">
+        <div className={styles.calendar_grid}>
           {daysOfMonth.map((dayOfMonth, dayOfMonthIndex) => (
             <div
               key={dayOfMonthIndex}
               style={this.state.holidays.length > 0 && this.state.holidays.some(x => dayOfMonth?.hasSame(x.fecha, 'day')) ? {backgroundColor: this.state.holidays.filter(x => dayOfMonth?.hasSame(x.fecha, 'day'))[0].color, color: '#ffffff'}:{}}
-              className={classnames({
-                "calendar-grid-cell": true,
-                "calendar-grid-cell-inactive":
-                  dayOfMonth?.month !== firstDay.month,
-              })}
+              className={`${styles.calendar_grid_cell} ${dayOfMonth?.month !== firstDay.month ? styles.calendar_grid_cell_inactive : ""}`}
             >
               {this.state.holidays.length > 0 && this.state.holidays.some(x => dayOfMonth?.hasSame(x.fecha, 'day')) ? 
               <span title={this.state.holidays.filter(x => dayOfMonth?.hasSame(x.fecha, 'day'))[0].title} >{dayOfMonth?.day}</span> 
@@ -176,11 +171,11 @@ export default class CalendarComponent extends React.Component<ICalendarProps, I
             </div>
           ))}
         </div>
-        <div className='calendar-event-type-info'>
-        <span className='calendar-event-type-title'>Festivos/eventos</span>
-        <div className='calendar-event-list'>
+        <div>
+        <span className={styles.calendar_event_type_title}>Festivos/eventos</span>
+        <div className={styles.calendar_event_list}>
         {this.state.holidaysConfig.map((config, index) => (
-          <div key={index} className='calendar-event-type'> 
+          <div key={index} className={styles.calendar_event_type}> 
           <FontIcon aria-label="CircleFill" iconName="CircleFill" style={{color: config.color}}/><span>{config.title}</span>
           </div>
           ))}

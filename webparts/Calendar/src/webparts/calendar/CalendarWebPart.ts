@@ -16,6 +16,8 @@ export interface ICalendarWebPartProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: any;
   title: string;
+  list: string;
+  configList: string;
 }
 
 export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebPartProps> {
@@ -26,6 +28,8 @@ export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebP
       {
         context: this.context,
         title: this.properties.title,
+        list: this.properties.list,
+        configList: this.properties.configList,
       }
     );
 
@@ -53,7 +57,13 @@ export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebP
               groupFields: [
                 PropertyPaneTextField('title', {
                   label: strings.TitleFieldLabel
-                })
+                }),
+                PropertyPaneTextField('list', {
+                  label: strings.ListFieldLabel
+                }),
+                PropertyPaneTextField('configList', {
+                  label: strings.ConfigListFieldLabel
+                }),
               ]
             }
           ]

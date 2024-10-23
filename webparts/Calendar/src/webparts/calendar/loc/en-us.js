@@ -12,6 +12,8 @@ define([], function() {
     "AppOfficeEnvironment": "The app is running in office.com",
     "AppOutlookEnvironment": "The app is running in Outlook",
     "UnknownEnvironment": "The app is running in an unknown environment",
-    "TitleFieldLabel": "Title"
+    "TitleFieldLabel": "Title",
+    "ListFieldLabel": "List",
+    "ConfigListFieldLabel": "Configuration List"
   }
 });
