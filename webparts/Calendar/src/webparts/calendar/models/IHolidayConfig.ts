@@ -1,4 +1,4 @@
 export interface HolidayConfig {
-    title: string;
-    color: string;
-  }
+  title: string;
+  color: string;
+}

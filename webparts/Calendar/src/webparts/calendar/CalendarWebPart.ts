@@ -1,15 +1,15 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import * as React from "react";
+import * as ReactDom from "react-dom";
+import { Version } from "@microsoft/sp-core-library";
 import {
   type IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+  PropertyPaneTextField,
+} from "@microsoft/sp-property-pane";
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 
-import * as strings from 'CalendarWebPartStrings';
-import Calendar from './components/CalendarComponent';
-import { ICalendarProps } from './components/ICalendarProps';
+import * as strings from "CalendarWebPartStrings";
+import Calendar from "./components/CalendarComponent";
+import { ICalendarProps } from "./components/ICalendarProps";
 
 export interface ICalendarWebPartProps {
   description: string;
@@ -21,7 +21,6 @@ export interface ICalendarWebPartProps {
 }
 
 export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebPartProps> {
-
   public render(): void {
     const element: React.ReactElement<ICalendarProps> = React.createElement(
       Calendar,
@@ -30,7 +29,7 @@ export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebP
         title: this.properties.title,
         list: this.properties.list,
         configList: this.properties.configList,
-      }
+      },
     );
 
     ReactDom.render(element, this.domElement);
@@ -41,7 +40,7 @@ export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebP
   }
 
   protected get dataVersion(): Version {
-    return Version.parse('1.0');
+    return Version.parse("1.0");
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -49,26 +48,26 @@ export default class CalendarWebPart extends BaseClientSideWebPart<ICalendarWebP
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: strings.PropertyPaneDescription,
           },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('title', {
-                  label: strings.TitleFieldLabel
+                PropertyPaneTextField("title", {
+                  label: strings.TitleFieldLabel,
                 }),
-                PropertyPaneTextField('list', {
-                  label: strings.ListFieldLabel
+                PropertyPaneTextField("list", {
+                  label: strings.ListFieldLabel,
                 }),
-                PropertyPaneTextField('configList', {
-                  label: strings.ConfigListFieldLabel
+                PropertyPaneTextField("configList", {
+                  label: strings.ConfigListFieldLabel,
                 }),
-              ]
-            }
-          ]
-        }
-      ]
+              ],
+            },
+          ],
+        },
+      ],
     };
   }
 }

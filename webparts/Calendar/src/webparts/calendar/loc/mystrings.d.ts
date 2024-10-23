@@ -16,7 +16,7 @@ declare interface ICalendarWebPartStrings {
   ConfigListFieldLabel: Title;
 }
 
-declare module 'CalendarWebPartStrings' {
+declare module "CalendarWebPartStrings" {
   const strings: ICalendarWebPartStrings;
   export = strings;
 }

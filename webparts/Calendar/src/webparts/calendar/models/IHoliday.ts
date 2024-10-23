@@ -1,8 +1,8 @@
-import { DateTime } from "luxon"
+import { DateTime } from "luxon";
 
 export interface Holiday {
-    title: string;
-    fecha: DateTime;
-    categoria: string;
-    color: string;
-  }
+  title: string;
+  fecha: DateTime;
+  categoria: string;
+  color: string;
+}
