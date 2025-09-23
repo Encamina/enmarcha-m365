@@ -74,7 +74,7 @@ export default class CalendarComponent extends React.Component<
       title: source.Title,
       categoria: source.Categoria,
       fecha: DateTime.fromISO(source.Fecha),
-      color: source.CategoriaLookup.Color,
+      color: source.Categoria.Color,
     };
   };
 
@@ -112,10 +112,10 @@ export default class CalendarComponent extends React.Component<
         "Title",
         "Categoria",
         "Fecha",
-        "CategoriaLookup/Title",
-        "CategoriaLookup/Color",
+        "Categoria/Title",
+        "Categoria/Color",
       )
-      .expand("CategoriaLookup")
+      .expand("Categoria")
       .orderBy("Fecha", false)();
     const holidays = items.map(this.mapToHoliday);
 
